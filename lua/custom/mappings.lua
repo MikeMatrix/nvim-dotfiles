@@ -1,5 +1,13 @@
 ---@type MappingsTable
 local M = {
+  disabled = {
+    i = {
+      ["<C-h>"] = "",
+      ["<C-l>"] = "",
+      ["<C-j>"] = "",
+      ["<C-k>"] = "",
+    },
+  },
   lspconfig = {
     n = {
       ["<leader>co"] = { "<cmd>OrganizeImports <CR>", "LSP organize imports" },
