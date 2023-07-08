@@ -11,6 +11,16 @@ local M = {
       ["<leader>rf"] = { "<cmd> Telescope lsp_references <CR>", "LSP referencesflist" },
     },
   },
+  general = {
+    n = {
+      ["<leader>tr"] = {
+        function()
+          require("base46").toggle_transparency()
+        end,
+        "Transparency toggle",
+      },
+    },
+  },
 }
 
 return M
