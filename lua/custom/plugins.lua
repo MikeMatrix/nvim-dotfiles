@@ -23,12 +23,32 @@ local plugins = {
     end,
   },
   {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function()
+      local leap = require "leap"
+      leap.add_default_mappings()
+    end,
+  },
+  {
     "nmac427/guess-indent.nvim",
     event = "VeryLazy",
     opts = require "custom.configs.guess-indent",
     config = function(_, opts)
       require("guess-indent").setup(opts)
     end,
+  },
+  {
+    "numToStr/Comment.nvim",
+    keys = {
+      { "<leader>gcc", mode = "n", desc = "Comment toggle current line" },
+      { "<leader>gc", mode = { "n", "o" }, desc = "Comment toggle linewise" },
+      { "<leader>gc", mode = "x", desc = "Comment toggle linewise (visual)" },
+      { "<leader>gbc", mode = "n", desc = "Comment toggle current block" },
+      { "<leader>gb", mode = { "n", "o" }, desc = "Comment toggle blockwise" },
+      { "<leader>gb", mode = "x", desc = "Comment toggle blockwise (visual)" },
+    },
+    opts = require "custom.configs.comment",
   },
   {
     "williamboman/mason.nvim",
@@ -61,6 +81,22 @@ local plugins = {
     opts = require "custom.configs.surround",
     config = function(_, opts)
       require("nvim-surround").setup(opts)
+    end,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    ft = "rust",
+    opts = require "custom.configs.rust-tools",
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
     end,
   },
 }

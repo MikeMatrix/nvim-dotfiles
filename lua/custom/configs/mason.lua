@@ -12,6 +12,8 @@ local options = {
     -- c/cpp
     "clangd",
     "clang-format",
+    -- rust
+    "rust-analyzer",
   },
 }
 
