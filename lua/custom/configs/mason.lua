@@ -7,8 +7,10 @@ local options = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
+    "graphql-language-service-cli",
     "deno",
     "prettier",
+    "prettierd",
     -- c/cpp
     "clangd",
     "clang-format",
