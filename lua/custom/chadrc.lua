@@ -1,3 +1,5 @@
+local highlights = require "custom.highlights"
+
 ---@type ChadrcConfig
 local M = {}
 
@@ -7,6 +9,13 @@ M.options = {
 
 M.ui = {
   theme = "catppuccin",
+  changed_themes = {
+    catppuccin = {
+      base_16 = {
+        base02 = "#4d4f68",
+      },
+    },
+  },
   transparency = true,
 
   nvdash = {
@@ -20,13 +29,8 @@ M.ui = {
       " ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝",
     },
   },
-  changed_themes = {
-    catppuccin = {
-      base_16 = {
-        base02 = "#4d4f68",
-      },
-    },
-  },
+  hl_override = highlights.override,
+  hl_add = highlights.add,
 }
 
 M.plugins = "custom.plugins"
