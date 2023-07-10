@@ -20,6 +20,13 @@ M.ui = {
       " ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝",
     },
   },
+  changed_themes = {
+    catppuccin = {
+      base_16 = {
+        base02 = "#4d4f68",
+      },
+    },
+  },
 }
 
 M.plugins = "custom.plugins"
