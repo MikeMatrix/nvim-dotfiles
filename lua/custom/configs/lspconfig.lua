@@ -25,6 +25,7 @@ local additionals = {
         description = "TypeScript Organize Imports",
       },
     },
+    single_file_support = false,
   },
 }
 
