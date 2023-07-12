@@ -1,6 +1,10 @@
 ---@type NvPluginSpec[]
 local plugins = {
   {
+    "willothy/wezterm.nvim",
+    config = true,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
@@ -65,9 +69,7 @@ local plugins = {
     },
     event = "VeryLazy",
     opts = require "custom.configs.treesitter-context",
-    config = function(_, opts)
-      require("treesitter-context").setup(opts)
-    end,
+    config = true,
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -95,9 +97,7 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = require "custom.configs.surround",
-    config = function(_, opts)
-      require("nvim-surround").setup(opts)
-    end,
+    config = true,
   },
   {
     "rust-lang/rust.vim",
@@ -111,9 +111,7 @@ local plugins = {
     dependencies = { "neovim/nvim-lspconfig" },
     ft = "rust",
     opts = require "custom.configs.rust-tools",
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
+    config = true,
   },
 }
 

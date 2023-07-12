@@ -77,6 +77,18 @@ local M = {
       },
     },
   },
+  wezterm = {
+    n = {
+      ["<leader>lg"] = {
+        function()
+          require("wezterm").split_pane.horizontal {
+            program = { "lazygit" },
+          }
+        end,
+        "Wezterm Lazygit",
+      },
+    },
+  },
 }
 
 return M
