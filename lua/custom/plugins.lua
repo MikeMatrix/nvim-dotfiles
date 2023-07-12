@@ -59,6 +59,17 @@ local plugins = {
     opts = require "custom.configs.treesitter",
   },
   {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "VeryLazy",
+    opts = require "custom.configs.treesitter-context",
+    config = function(_, opts)
+      require("treesitter-context").setup(opts)
+    end,
+  },
+  {
     "nvim-tree/nvim-tree.lua",
     opts = require "custom.configs.nvim-tree",
   },
@@ -70,6 +81,11 @@ local plugins = {
     "natecraddock/telescope-zf-native.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
     event = "VeryLazy",
+  },
+  {
+    "ThePrimeagen/harpoon",
+    cmd = "Harpoon",
+    lazy = false,
   },
   {
     "jeffkreeftmeijer/vim-numbertoggle",

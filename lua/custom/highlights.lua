@@ -3,7 +3,10 @@ local M = {}
 ---@type Base46HLGroupsList
 M.override = {
   LineNr = {
-    fg = "light_grey",
+    fg = "nord_blue",
+  },
+  CursorLineNr = {
+    fg = "vibrant_green",
   },
   Comment = {
     italic = true,
@@ -12,6 +15,7 @@ M.override = {
 
 ---@type HLTable
 M.add = {
+  -- Leap
   LeapMatch = {
     fg = "pink",
     underline = true,
@@ -32,6 +36,13 @@ M.add = {
   },
   LeapBackdrop = {
     bg = "#4d4f68",
+  },
+  -- TreesitterContext
+  TreesitterContext = {
+    bg = "one_bg",
+  },
+  TreesitterContextLineNumber = {
+    fg = "light_grey",
   },
 }
 

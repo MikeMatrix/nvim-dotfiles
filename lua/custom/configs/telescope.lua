@@ -17,6 +17,7 @@ local options = {
     "themes",
     "terms",
     "zf-native",
+    "harpoon",
   },
 }
 
