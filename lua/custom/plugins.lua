@@ -113,6 +113,15 @@ local plugins = {
     opts = require "custom.configs.rust-tools",
     config = true,
   },
+  {
+    "gerazov/toggle-bool.nvim",
+    lazy = false,
+    opts = require "custom.configs.toggle-bool",
+    config = function(_, opts)
+      local toggleBool = require "toggle-bool"
+      toggleBool.conf.toggles = vim.tbl_extend("force", toggleBool.conf.toggles, opts.additional_toggles)
+    end,
+  },
 }
 
 return plugins

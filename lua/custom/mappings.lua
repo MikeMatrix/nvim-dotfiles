@@ -31,6 +31,12 @@ local M = {
         end,
         "Transparency toggle",
       },
+      ["<leader>tb"] = {
+        function()
+          require("toggle-bool").toggle_bool()
+        end,
+        "Toggle Boolean",
+      },
     },
   },
   harpoon = {
