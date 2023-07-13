@@ -29,6 +29,17 @@ M.ui = {
       " ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝    ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝",
     },
   },
+
+  tabufline = {
+    overriden_modules = function()
+      return {
+        buttons = function()
+          return "%@TbCloseAllBufs@%#TbLineCloseAllBufsBtn#" .. " 󰅖 " .. "%X"
+        end,
+      }
+    end,
+  },
+
   hl_override = highlights.override,
   hl_add = highlights.add,
 }
