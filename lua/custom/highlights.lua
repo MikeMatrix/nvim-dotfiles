@@ -35,7 +35,7 @@ M.add = {
     nocombine = true,
   },
   LeapBackdrop = {
-    bg = "#4d4f68",
+    bg = "lightbg",
   },
   -- TreesitterContext
   TreesitterContext = {
