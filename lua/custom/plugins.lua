@@ -1,9 +1,11 @@
 ---@type NvPluginSpec[]
 local plugins = {
+  -- package managers
   {
-    "willothy/wezterm.nvim",
-    config = true,
+    "williamboman/mason.nvim",
+    opts = require "custom.configs.mason",
   },
+  -- lsp
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -19,6 +21,58 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = require "custom.configs.treesitter",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "VeryLazy",
+    opts = require "custom.configs.treesitter-context",
+    config = true,
+  },
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    ft = "rust",
+    opts = require "custom.configs.rust-tools",
+    config = true,
+  },
+  -- integrations
+  {
+    "willothy/wezterm.nvim",
+    config = true,
+  },
+  -- UI
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = require "custom.configs.nvim-tree",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = require "custom.configs.telescope",
+  },
+  {
+    "natecraddock/telescope-zf-native.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    event = "VeryLazy",
+  },
+  {
+    "ThePrimeagen/harpoon",
+    cmd = "Harpoon",
+    lazy = false,
+  },
+  -- editor
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
@@ -55,41 +109,6 @@ local plugins = {
     opts = require "custom.configs.comment",
   },
   {
-    "williamboman/mason.nvim",
-    opts = require "custom.configs.mason",
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = require "custom.configs.treesitter",
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    event = "VeryLazy",
-    opts = require "custom.configs.treesitter-context",
-    config = true,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "custom.configs.nvim-tree",
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    opts = require "custom.configs.telescope",
-  },
-  {
-    "natecraddock/telescope-zf-native.nvim",
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    event = "VeryLazy",
-  },
-  {
-    "ThePrimeagen/harpoon",
-    cmd = "Harpoon",
-    lazy = false,
-  },
-  {
     "jeffkreeftmeijer/vim-numbertoggle",
     event = "VeryLazy",
   },
@@ -97,20 +116,6 @@ local plugins = {
     "kylechui/nvim-surround",
     event = "VeryLazy",
     opts = require "custom.configs.surround",
-    config = true,
-  },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
-  {
-    "simrat39/rust-tools.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    ft = "rust",
-    opts = require "custom.configs.rust-tools",
     config = true,
   },
   {
