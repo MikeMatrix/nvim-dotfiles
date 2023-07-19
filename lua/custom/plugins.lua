@@ -35,6 +35,20 @@ local plugins = {
     config = true,
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "VeryLazy",
+  },
+  {
+    "nvim-treesitter/playground",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    cmd = "TSPlaygroundToggle",
+  },
+  {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function()

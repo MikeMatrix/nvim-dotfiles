@@ -40,6 +40,11 @@ M.ui = {
     end,
   },
 
+  statusline = {
+    theme = "minimal",
+    separator_style = "round",
+  },
+
   hl_override = highlights.override,
   hl_add = highlights.add,
 }
