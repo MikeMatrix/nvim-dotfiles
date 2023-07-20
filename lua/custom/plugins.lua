@@ -23,6 +23,9 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     opts = require "custom.configs.treesitter",
   },
   {
@@ -33,13 +36,6 @@ local plugins = {
     event = "VeryLazy",
     opts = require "custom.configs.treesitter-context",
     config = true,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    event = "VeryLazy",
   },
   {
     "nvim-treesitter/playground",
