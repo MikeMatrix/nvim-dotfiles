@@ -21,6 +21,7 @@ local M = {
     n = {
       ["<leader>ds"] = { "<cmd> Telescope lsp_document_symbols <CR>", "LSP document symbols list" },
       ["<leader>rf"] = { "<cmd> Telescope lsp_references <CR>", "LSP referencesflist" },
+      ["<leader>di"] = { "<cmd> Telescope diagnostics <CR>", "LSP Diagnostics" },
     },
   },
   general = {
@@ -36,6 +37,14 @@ local M = {
           require("toggle-bool").toggle_bool()
         end,
         "Toggle Boolean",
+      },
+      ["<leader>o"] = {
+        "m`o<Esc>``",
+        "Insert new empty line below",
+      },
+      ["<leader>O"] = {
+        "m`O<Esc>``",
+        "Insert new empty line above",
       },
     },
   },
