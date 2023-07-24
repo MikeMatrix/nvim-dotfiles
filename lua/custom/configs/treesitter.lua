@@ -26,9 +26,12 @@ local options = {
     enable = true,
     lsp_interop = {
       enable = true,
-      border = "none",
+      border = "single",
       floating_preview_opts = {},
-      peek_definition_code = {},
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
     },
     select = {
       enable = true,
@@ -39,6 +42,28 @@ local options = {
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
         ["aS"] = "@scope",
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true,
+      goto_next_start = {
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
+        ["]s"] = "@scope",
+        ["]z"] = "@fold",
+      },
+      goto_next_end = {
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
+      },
+      goto_previous_end = {
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
       },
     },
   },
