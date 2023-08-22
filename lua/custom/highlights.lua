@@ -11,6 +11,10 @@ M.override = {
   Comment = {
     italic = true,
   },
+  -- Nvim-tree
+  NvimTreeCursorLine = {
+    bg = "one_bg",
+  },
 }
 
 ---@type HLTable
