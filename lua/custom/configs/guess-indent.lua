@@ -1,4 +1,6 @@
 local options = {
+  auto_cmd = true,
+  override_editorconfig = true,
   filetype_exclude = {
     "help",
     "terminal",

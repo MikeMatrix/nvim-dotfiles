@@ -6,26 +6,27 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "tsserver",
   "clangd",
-  "graphql",
+  -- "graphql",
+  "tsserver",
 }
 
 local additionals = {
   tsserver = {
-    commands = {
-      OrganizeImports = {
-        function()
-          vim.lsp.buf.execute_command {
-            command = "_typescript.organizeImports",
-            arguments = { vim.api.nvim_buf_get_name(0) },
-            title = "",
-          }
-        end,
-        description = "TypeScript Organize Imports",
-      },
-    },
+    on_attach = function(client, bufnr)
+      vim.api.nvim_create_user_command("OrganizeImports", function()
+        vim.lsp.buf.execute_command {
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = "",
+        }
+      end, { desc = "TypeScript Organize Imports" })
+      on_attach(client, bufnr)
+    end,
     single_file_support = false,
+  },
+  graphql = {
+    filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript", "javascript" },
   },
 }
 
