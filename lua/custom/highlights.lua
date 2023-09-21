@@ -14,6 +14,10 @@ M.override = {
   Comment = {
     italic = true,
   },
+  Folded = {
+    fg = "light_grey",
+    bold = true,
+  },
   -- Nvim-tree
   NvimTreeCursorLine = {
     bg = "one_bg",
