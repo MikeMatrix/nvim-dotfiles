@@ -10,7 +10,7 @@ local options = {
     "c",
     "markdown",
     "markdown_inline",
-    "graphql",
+    -- "graphql",
   },
   indent = {
     enable = true,
