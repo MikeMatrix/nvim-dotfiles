@@ -14,7 +14,36 @@ local M = {
   },
   lspconfig = {
     n = {
-      ["<leader>co"] = { "<cmd>OrganizeImports <CR>", "LSP organize imports" },
+      ["<leader>co"] = {
+        function()
+          require("typescript-tools.api").organize_imports(false)
+        end,
+        "LSP organize imports",
+      },
+      ["<leader>cf"] = {
+        function()
+          require("typescript-tools.api").fix_all(false)
+        end,
+        "TSTools Fix All",
+      },
+      ["<leader>ci"] = {
+        function()
+          require("typescript-tools.api").add_missing_imports(false)
+        end,
+        "TSTools add missing imports",
+      },
+      ["<leader>RF"] = {
+        function()
+          require("typescript-tools.api").rename_file(false)
+        end,
+        "TSTools Rename File",
+      },
+      ["gs"] = {
+        function()
+          require("typescript-tools.api").go_to_source_definition(false)
+        end,
+        "TSTools go to source definition",
+      },
     },
   },
   telescope = {

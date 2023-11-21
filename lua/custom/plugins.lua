@@ -15,6 +15,7 @@ local plugins = {
           require "custom.configs.null-ls"
         end,
       },
+      "pmizio/typescript-tools.nvim",
     },
     config = function()
       require "plugins.configs.lspconfig"

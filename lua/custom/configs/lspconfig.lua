@@ -8,7 +8,7 @@ local servers = {
   "cssls",
   "clangd",
   -- "graphql",
-  "tsserver",
+  -- "tsserver",
 }
 
 local additionals = {
@@ -42,3 +42,13 @@ for _, lsp in pairs(servers) do
 
   lspconfig[lsp].setup(config)
 end
+
+require("typescript-tools").setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    tsserver_plugins = {
+      -- "@styled/typescript-styled-plugin",
+    },
+  },
+}
