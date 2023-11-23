@@ -14,6 +14,12 @@ local M = {
   },
   lspconfig = {
     n = {
+      ["<leader>ca"] = {
+        function()
+          require("actions-preview").code_actions()
+        end,
+        "LSP code action",
+      },
       ["<leader>co"] = {
         function()
           require("typescript-tools.api").organize_imports(false)
@@ -43,6 +49,14 @@ local M = {
           require("typescript-tools.api").go_to_source_definition(false)
         end,
         "TSTools go to source definition",
+      },
+    },
+    v = {
+      ["<leader>ca"] = {
+        function()
+          require("actions-preview").code_actions()
+        end,
+        "LSP code action",
       },
     },
   },

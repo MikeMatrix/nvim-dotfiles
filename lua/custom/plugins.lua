@@ -83,6 +83,15 @@ local plugins = {
     cmd = "Harpoon",
     lazy = false,
   },
+  {
+    "aznhe21/actions-preview.nvim",
+    keys = {
+      { "<leader>ca", mode = "n", desc = "Code Action" },
+      { "<leader>ca", mode = "v", desc = "Code Action (visual mode)" },
+    },
+    opts = require "custom.configs.actions-preview",
+    config = true,
+  },
   -- editor
   {
     "max397574/better-escape.nvim",
