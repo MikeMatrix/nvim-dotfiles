@@ -43,12 +43,41 @@ for _, lsp in pairs(servers) do
   lspconfig[lsp].setup(config)
 end
 
+vim.g.inlay_hints_visible = true
 require("typescript-tools").setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    if client.server_capabilities.inlayHintProvider then
+      local inlay_hints_group = vim.api.nvim_create_augroup("InlayHints", { clear = true })
+
+      -- Initial inlay hint display.
+      local mode = vim.api.nvim_get_mode().mode
+      vim.lsp.inlay_hint(bufnr, mode == "n" or mode == "v")
+
+      vim.api.nvim_create_autocmd("InsertEnter", {
+        group = inlay_hints_group,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.inlay_hint(bufnr, false)
+        end,
+      })
+      vim.api.nvim_create_autocmd("InsertLeave", {
+        group = inlay_hints_group,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.inlay_hint(bufnr, true)
+        end,
+      })
+    end
+    on_attach(client, bufnr)
+  end,
   capabilities = capabilities,
   settings = {
-    tsserver_plugins = {
-      -- "@styled/typescript-styled-plugin",
+    tsserver_file_preferences = {
+      includeInlayParameterNameHints = "all",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeCompletionsForModuleExports = true,
+      quotePreference = "auto",
     },
   },
 }
