@@ -16,6 +16,8 @@ local options = {
     "clang-format",
     -- rust
     "rust-analyzer",
+    -- php
+    "intelephense",
   },
 }
 
