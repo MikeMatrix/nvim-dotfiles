@@ -31,6 +31,11 @@ M.override = {
 
 ---@type HLTable
 M.add = {
+  LspInlayHint = {
+    fg = "light_grey",
+    bg = "one_bg2",
+    italic = true,
+  },
   -- Leap
   LeapMatch = {
     fg = "pink",

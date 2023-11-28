@@ -74,7 +74,7 @@ require("typescript-tools").setup {
   capabilities = capabilities,
   settings = {
     tsserver_file_preferences = {
-      includeInlayParameterNameHints = "all",
+      includeInlayParameterNameHints = "literals",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
       includeInlayFunctionLikeReturnTypeHints = false,
       includeCompletionsForModuleExports = true,
