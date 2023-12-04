@@ -9,7 +9,7 @@ local servers = {
   "clangd",
   -- "graphql",
   -- "tsserver",
-  "intelephense",
+  -- "intelephense",
 }
 
 local additionals = {
