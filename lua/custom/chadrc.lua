@@ -31,6 +31,7 @@ M.ui = {
   },
 
   tabufline = {
+    enabled = false,
     overriden_modules = function(modules)
       modules[4] = (function()
         return "%@TbCloseAllBufs@%#TbLineCloseAllBufsBtn#" .. " 󰅖 " .. "%X"
