@@ -50,6 +50,12 @@ local M = {
         end,
         "TSTools go to source definition",
       },
+      ["<leader>fm"] = {
+        function()
+          require("conform").format()
+        end,
+        "Conform Format",
+      },
     },
     v = {
       ["<leader>ca"] = {

@@ -9,17 +9,19 @@ local plugins = {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
       "pmizio/typescript-tools.nvim",
     },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    event = "BufWritePre",
+    config = function()
+      require "custom.configs.conform"
     end,
   },
   {
