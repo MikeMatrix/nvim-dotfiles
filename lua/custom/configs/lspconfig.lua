@@ -9,7 +9,9 @@ local servers = {
   "clangd",
   -- "graphql",
   -- "tsserver",
-  -- "intelephense",
+  "intelephense",
+  "jsonls",
+  "yamlls",
 }
 
 local additionals = {
@@ -52,20 +54,20 @@ require("typescript-tools").setup {
 
       -- Initial inlay hint display.
       local mode = vim.api.nvim_get_mode().mode
-      vim.lsp.inlay_hint(bufnr, mode == "n" or mode == "v")
+      vim.lsp.inlay_hint.enable(bufnr, mode == "n" or mode == "v")
 
       vim.api.nvim_create_autocmd("InsertEnter", {
         group = inlay_hints_group,
         buffer = bufnr,
         callback = function()
-          vim.lsp.inlay_hint(bufnr, false)
+          vim.lsp.inlay_hint.enable(bufnr, false)
         end,
       })
       vim.api.nvim_create_autocmd("InsertLeave", {
         group = inlay_hints_group,
         buffer = bufnr,
         callback = function()
-          vim.lsp.inlay_hint(bufnr, true)
+          vim.lsp.inlay_hint.enable(bufnr, true)
         end,
       })
     end

@@ -61,11 +61,43 @@ local plugins = {
     opts = require "custom.configs.rust-tools",
     config = true,
   },
-  -- integrations
   {
-    "willothy/wezterm.nvim",
-    config = true,
+    "rcarriga/nvim-dap-ui",
+    init = function() end,
+    dependencies = {
+      {
+        "mfussenegger/nvim-dap",
+        config = function()
+          -- NOTE: Check out this for guide
+          -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+          local dap = require "dap"
+          vim.fn.sign_define("DapBreakpoint", { text = "?", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+
+          local dapui = require "dapui"
+          dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open()
+          end
+
+          -- dap.listeners.before.event_terminated["dapui_config"] = function()
+          --   dapui.close()
+          -- end
+
+          -- dap.listeners.before.event_exited["dapui_config"] = function()
+          --   dapui.close()
+          -- end
+
+          -- NOTE: Make sure to install the needed files/exectubles through mason
+          require "custom.configs.dap.settings.js-debug"
+        end,
+      },
+    },
+    opts = require "custom.configs.dap.ui",
   },
+  -- integrations
+  -- {
+  --   "willothy/wezterm.nvim",
+  --   config = true,
+  -- },
   -- UI
   {
     "nvim-tree/nvim-tree.lua",
@@ -93,6 +125,36 @@ local plugins = {
     },
     opts = require "custom.configs.actions-preview",
     config = true,
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = false, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+      },
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
   },
   -- editor
   {
@@ -140,15 +202,15 @@ local plugins = {
     opts = require "custom.configs.surround",
     config = true,
   },
-  {
-    "gerazov/toggle-bool.nvim",
-    lazy = false,
-    opts = require "custom.configs.toggle-bool",
-    config = function(_, opts)
-      local toggleBool = require "toggle-bool"
-      toggleBool.conf.toggles = vim.tbl_extend("force", toggleBool.conf.toggles, opts.additional_toggles)
-    end,
-  },
+  -- {
+  --   "gerazov/toggle-bool.nvim",
+  --   lazy = false,
+  --   opts = require "custom.configs.toggle-bool",
+  --   config = function(_, opts)
+  --     local toggleBool = require "toggle-bool"
+  --     toggleBool.conf.toggles = vim.tbl_extend("force", toggleBool.conf.toggles, opts.additional_toggles)
+  --   end,
+  -- },
 }
 
 return plugins

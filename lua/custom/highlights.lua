@@ -65,6 +65,9 @@ M.add = {
   TreesitterContextLineNumber = {
     fg = "light_grey",
   },
+  NotifyBackground = {
+    bg = "one_bg",
+  },
 }
 
 return M

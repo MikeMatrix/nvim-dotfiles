@@ -7,7 +7,12 @@ local options = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "graphql-language-service-cli",
+    "js-debug-adapter",
+    -- json
+    "json-lsp",
+    -- yaml
+    "yaml-language-server",
+    -- "graphql-language-service-cli",
     "deno",
     "prettier",
     "prettierd",
@@ -18,6 +23,7 @@ local options = {
     "rust-analyzer",
     -- php
     "intelephense",
+    "pretty-php",
   },
 }
 

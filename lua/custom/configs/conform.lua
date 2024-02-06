@@ -7,12 +7,16 @@ local options = {
     c = { "clang_format" },
     cpp = { "clang_format" },
 
-    javascript = { "prettierd", "prettier" },
-    javascriptreact = { "prettierd", "prettier" },
-    typescript = { "prettierd", "prettier" },
-    typescriptreact = { "prettierd", "prettier" },
-    css = { "prettierd", "prettier" },
-    html = { "prettierd", "prettier" },
+    javascript = { "prettierd" },
+    javascriptreact = { "prettierd" },
+    typescript = { "prettierd" },
+    typescriptreact = { "prettierd" },
+    css = { "prettierd" },
+    html = { "prettierd" },
+    graphql = { "prettierd" },
+    json = { "prettierd" },
+
+    php = { "pretty-php" },
 
     sh = { "shfmt" },
 
