@@ -93,11 +93,6 @@ local plugins = {
     },
     opts = require "custom.configs.dap.ui",
   },
-  -- integrations
-  -- {
-  --   "willothy/wezterm.nvim",
-  --   config = true,
-  -- },
   -- UI
   {
     "nvim-tree/nvim-tree.lua",
@@ -126,36 +121,6 @@ local plugins = {
     opts = require "custom.configs.actions-preview",
     config = true,
   },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-        },
-      },
-      -- you can enable a preset for easier configuration
-      presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-      },
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-  },
   -- editor
   {
     "max397574/better-escape.nvim",
@@ -164,14 +129,14 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-  {
-    "ggandor/leap.nvim",
-    lazy = false,
-    config = function()
-      local leap = require "leap"
-      leap.add_default_mappings()
-    end,
-  },
+  -- {
+  --   "ggandor/leap.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     local leap = require "leap"
+  --     leap.add_default_mappings()
+  --   end,
+  -- },
   {
     "nmac427/guess-indent.nvim",
     event = "VeryLazy",
@@ -211,6 +176,43 @@ local plugins = {
   --     toggleBool.conf.toggles = vim.tbl_extend("force", toggleBool.conf.toggles, opts.additional_toggles)
   --   end,
   -- },
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    config = true,
+    opts = {
+      panel = {
+        enabled = false,
+      },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 100,
+        keymap = {
+          accept = "<C-y>",
+          accept_word = false,
+          accept_line = "<C-Y>",
+          next = "<C-}>",
+          prev = "<C-{>",
+          dismiss = "<A-y>",
+        },
+      },
+      filetypes = {
+        yaml = false,
+        markdown = false,
+        help = false,
+        gitcommit = false,
+        gitrebase = false,
+        hgcommit = false,
+        svn = false,
+        cvs = false,
+        typescript = true,
+        typescriptreact = true,
+        javascript = true,
+        javascriptreact = true,
+      },
+    },
+  },
 }
 
 return plugins

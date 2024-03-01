@@ -3,6 +3,7 @@ local options = {
     enable = true,
   },
   renderer = {
+    group_empty = true,
     highlight_git = true,
     icons = {
       show = {
