@@ -1,5 +1,3 @@
-vim.api.nvim_exec("language en_US", true)
-
 -- GUI Config
 vim.o.guifont = "FiraCode Nerd Font:h11"
 

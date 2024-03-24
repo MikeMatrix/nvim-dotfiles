@@ -10,6 +10,7 @@ local servers = {
   -- "graphql",
   -- "tsserver",
   -- "intelephense",
+  "omnisharp",
 }
 
 local additionals = {
@@ -28,6 +29,9 @@ local additionals = {
   },
   graphql = {
     filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript", "javascript" },
+  },
+  omnisharp = {
+    cmd = { "/home/mikematrix/.local/share/nvim/mason/packages/omnisharp/omnisharp" },
   },
 }
 
