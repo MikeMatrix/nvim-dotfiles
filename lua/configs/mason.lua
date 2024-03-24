@@ -18,8 +18,6 @@ local options = {
     "rust-analyzer",
     -- php
     "intelephense",
-    -- C#
-    "omnisharp",
   },
 }
 

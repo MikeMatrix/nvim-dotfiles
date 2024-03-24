@@ -10,7 +10,7 @@ local options = {
     "c",
     "markdown",
     "markdown_inline",
-    -- "graphql",
+    "graphql",
   },
   indent = {
     enable = true,
@@ -41,7 +41,6 @@ local options = {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
-        ["aS"] = "@scope",
       },
     },
     move = {
@@ -50,7 +49,6 @@ local options = {
       goto_next_start = {
         ["]m"] = "@function.outer",
         ["]]"] = "@class.outer",
-        ["]s"] = "@scope",
         ["]z"] = "@fold",
       },
       goto_next_end = {

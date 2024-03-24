@@ -26,4 +26,4 @@ local options = {
   },
 }
 
-require("conform").setup(options) -- instead of the above code you could just use a loop!
+require("conform").setup(options)

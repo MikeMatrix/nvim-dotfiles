@@ -14,7 +14,6 @@ local options = {
     },
   },
   extensions_list = {
-    "themes",
     "terms",
     "zf-native",
     "harpoon",

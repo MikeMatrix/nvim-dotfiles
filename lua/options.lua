@@ -1,19 +1,18 @@
--- GUI Config
-vim.o.guifont = "FiraCode Nerd Font:h11"
+require "nvchad.options"
 
 -- WSL Specific
 local in_wsl = os.getenv "WSL_DISTRO_NAME" ~= nil
 
 if in_wsl then
   vim.g.clipboard = {
-    name = "WslClipboard",
+    name = "win32yank-wsl",
     copy = {
-      ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
     },
     paste = {
-      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["+"] = 'win32yank.exe -o --lf',
+      ["*"] = 'win32yank.exe -o --lf',
     },
     cache_enabled = false,
   }
@@ -31,3 +30,4 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
+
