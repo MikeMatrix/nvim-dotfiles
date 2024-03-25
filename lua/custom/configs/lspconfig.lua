@@ -7,7 +7,7 @@ local servers = {
   "html",
   "cssls",
   "clangd",
-  -- "graphql",
+  "graphql",
   -- "tsserver",
   "intelephense",
   "jsonls",
@@ -29,7 +29,7 @@ local additionals = {
     single_file_support = false,
   },
   graphql = {
-    filetypes = { "graphql", "typescriptreact", "javascriptreact", "typescript", "javascript" },
+    filetypes = { "graphql" },
   },
 }
 
@@ -76,6 +76,7 @@ require("typescript-tools").setup {
   capabilities = capabilities,
   settings = {
     tsserver_file_preferences = {
+      single_file_support = false,
       includeInlayParameterNameHints = "none",
       includeInlayParameterNameHintsWhenArgumentMatchesName = false,
       includeInlayFunctionLikeReturnTypeHints = false,

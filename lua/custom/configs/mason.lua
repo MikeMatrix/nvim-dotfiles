@@ -12,7 +12,7 @@ local options = {
     "json-lsp",
     -- yaml
     "yaml-language-server",
-    -- "graphql-language-service-cli",
+    "graphql-language-service-cli",
     "deno",
     "prettier",
     "prettierd",

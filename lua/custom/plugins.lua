@@ -47,52 +47,52 @@ local plugins = {
     },
     cmd = "TSPlaygroundToggle",
   },
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function()
-      vim.g.rustfmt_autosave = 1
-    end,
-  },
-  {
-    "simrat39/rust-tools.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    ft = "rust",
-    opts = require "custom.configs.rust-tools",
-    config = true,
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    init = function() end,
-    dependencies = {
-      {
-        "mfussenegger/nvim-dap",
-        config = function()
-          -- NOTE: Check out this for guide
-          -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
-          local dap = require "dap"
-          vim.fn.sign_define("DapBreakpoint", { text = "?", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-
-          local dapui = require "dapui"
-          dap.listeners.after.event_initialized["dapui_config"] = function()
-            dapui.open()
-          end
-
-          -- dap.listeners.before.event_terminated["dapui_config"] = function()
-          --   dapui.close()
-          -- end
-
-          -- dap.listeners.before.event_exited["dapui_config"] = function()
-          --   dapui.close()
-          -- end
-
-          -- NOTE: Make sure to install the needed files/exectubles through mason
-          require "custom.configs.dap.settings.js-debug"
-        end,
-      },
-    },
-    opts = require "custom.configs.dap.ui",
-  },
+  -- {
+  --   "rust-lang/rust.vim",
+  --   ft = "rust",
+  --   init = function()
+  --     vim.g.rustfmt_autosave = 1
+  --   end,
+  -- },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   dependencies = { "neovim/nvim-lspconfig" },
+  --   ft = "rust",
+  --   opts = require "custom.configs.rust-tools",
+  --   config = true,
+  -- },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   init = function() end,
+  --   dependencies = {
+  --     {
+  --       "mfussenegger/nvim-dap",
+  --       config = function()
+  --         -- NOTE: Check out this for guide
+  --         -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation
+  --         local dap = require "dap"
+  --         vim.fn.sign_define("DapBreakpoint", { text = "?", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+  --
+  --         local dapui = require "dapui"
+  --         dap.listeners.after.event_initialized["dapui_config"] = function()
+  --           dapui.open()
+  --         end
+  --
+  --         -- dap.listeners.before.event_terminated["dapui_config"] = function()
+  --         --   dapui.close()
+  --         -- end
+  --
+  --         -- dap.listeners.before.event_exited["dapui_config"] = function()
+  --         --   dapui.close()
+  --         -- end
+  --
+  --         -- NOTE: Make sure to install the needed files/exectubles through mason
+  --         require "custom.configs.dap.settings.js-debug"
+  --       end,
+  --     },
+  --   },
+  --   opts = require "custom.configs.dap.ui",
+  -- },
   -- UI
   {
     "nvim-tree/nvim-tree.lua",
@@ -129,14 +129,14 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-  -- {
-  --   "ggandor/leap.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     local leap = require "leap"
-  --     leap.add_default_mappings()
-  --   end,
-  -- },
+  {
+    "ggandor/leap.nvim",
+    lazy = false,
+    config = function()
+      local leap = require "leap"
+      leap.add_default_mappings()
+    end,
+  },
   {
     "nmac427/guess-indent.nvim",
     event = "VeryLazy",
@@ -191,7 +191,7 @@ local plugins = {
         keymap = {
           accept = "<C-y>",
           accept_word = false,
-          accept_line = "<C-Y>",
+          accept_line = false,
           next = "<C-}>",
           prev = "<C-{>",
           dismiss = "<A-y>",
