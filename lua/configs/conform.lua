@@ -13,6 +13,7 @@ local options = {
     typescriptreact = { "prettierd", "prettier" },
     css = { "prettierd", "prettier" },
     html = { "prettierd", "prettier" },
+    graphql = { "prettierd", "prettier" },
 
     sh = { "shfmt" },
 
@@ -26,4 +27,4 @@ local options = {
   },
 }
 
-require("conform").setup(options)
+return options

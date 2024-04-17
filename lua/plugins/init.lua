@@ -8,8 +8,13 @@ return {
   {
     "stevearc/conform.nvim",
     event = "BufWritePre", -- uncomment for format on save
+    opts = require "configs.conform",
+  },
+  {
+    "neovim/nvim-lspconfig",
     config = function()
-      require "configs.conform"
+      require("nvchad.configs.lspconfig").defaults()
+      require "configs.lspconfig"
     end,
   },
   {
@@ -18,7 +23,6 @@ return {
       "nvim-lua/plenary.nvim",
       "neovim/nvim-lspconfig",
     },
-    opts = {},
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -53,7 +57,15 @@ return {
   -- ui
   {
     "nvim-tree/nvim-tree.lua",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
     opts = require "configs.nvim-tree",
+  },
+  {
+    "kyazdani42/nvim-web-devicons",
+    opts = require "configs.nvim-web-devicons",
+    config = true,
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -71,15 +83,6 @@ return {
     cmd = "Harpoon",
     lazy = false,
   },
-  {
-    "aznhe21/actions-preview.nvim",
-    keys = {
-      { "<leader>ca", mode = "n", desc = "Code Action" },
-      { "<leader>ca", mode = "v", desc = "Code Action (visual mode)" },
-    },
-    opts = require "configs.actions-preview",
-    config = true,
-  },
   -- editor
   {
     "jeffkreeftmeijer/vim-numbertoggle",
@@ -95,4 +98,10 @@ return {
     "ggandor/leap.nvim",
     lazy = false,
   },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "User FilePost",
+  --   config = true,
+  --   opts = require "configs.copilot",
+  -- },
 }

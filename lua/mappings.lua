@@ -23,12 +23,9 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map("n", "<leader>o", "m`o<Esc>``", { desc = "Empty Line below" })
 map("n", "<leader>O", "m`O<Esc>``", { desc = "Empty Line above" })
+map("v", "p", "P", { desc = "Paste without yanking" })
 
 -- LSP
-map({ "n", "v" }, "<leader>ca", function()
-  require("actions-preview").code_actions()
-end, { desc = "LSP Code Actions" })
-
 map({ "n", "v" }, "<leader>co", function()
   require("typescript-tools.api").organize_imports(false)
 end, { desc = "LSP Organize Imports" })
@@ -75,15 +72,15 @@ map("n", "<leader>1", function()
 end, { desc = "Harpoon File 1" })
 
 map("n", "<leader>2", function()
-  require("harpoon.ui").nav_file(1)
+  require("harpoon.ui").nav_file(2)
 end, { desc = "Harpoon File 2" })
 
 map("n", "<leader>3", function()
-  require("harpoon.ui").nav_file(1)
+  require("harpoon.ui").nav_file(3)
 end, { desc = "Harpoon File 3" })
 
 map("n", "<leader>4", function()
-  require("harpoon.ui").nav_file(1)
+  require("harpoon.ui").nav_file(4)
 end, { desc = "Harpoon File 4" })
 
 -- Leap

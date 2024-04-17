@@ -11,11 +11,17 @@ if in_wsl then
       ["*"] = "win32yank.exe -i --crlf",
     },
     paste = {
-      ["+"] = 'win32yank.exe -o --lf',
-      ["*"] = 'win32yank.exe -o --lf',
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
     },
     cache_enabled = false,
   }
+end
+
+-- Neovide Specific
+if vim.g.neovide then
+  vim.opt.guifont = "FiraCode Nerd Font:h9"
+  vim.opt.guifontwide = "FiraCode Nerd Font:h9"
 end
 
 -- Indenting
@@ -30,4 +36,3 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
-

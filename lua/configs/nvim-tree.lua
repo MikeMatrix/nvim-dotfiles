@@ -1,3 +1,5 @@
+local baseOptions = require "nvchad.configs.nvimtree"
+
 local options = {
   view = {
     width = {
@@ -8,4 +10,4 @@ local options = {
   },
 }
 
-return options
+return vim.tbl_deep_extend("force", baseOptions, options)
