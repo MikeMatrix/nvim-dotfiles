@@ -5,7 +5,7 @@
 local M = {}
 
 M.ui = {
-  theme = "catppuccin",
+  theme = "tokyonight",
   changed_themes = {
     catppuccin = {
       base_16 = {
@@ -13,7 +13,7 @@ M.ui = {
       },
     },
   },
-  transparency = true,
+  transparency = false,
   tabufline = {
     enabled = false,
   },

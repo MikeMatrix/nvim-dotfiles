@@ -92,3 +92,6 @@ map({ "n", "x", "o" }, "gs", "<Plug>(leap-from-window)", { desc = "Leap From Win
 map("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count1)
 end, { desc = "TreesitterContext Go to Context", silent = true })
+
+-- Undotree
+map("n", "<leader>u", require("undotree").toggle, { noremap = true, silent = true, desc = "Undotree Toggle" })

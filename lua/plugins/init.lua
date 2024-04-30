@@ -83,6 +83,17 @@ return {
     cmd = "Harpoon",
     lazy = false,
   },
+  {
+    "jiaoshijie/undotree",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = require "configs.undotree",
+    config = true,
+    keys = {
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+    },
+  },
   -- editor
   {
     "jeffkreeftmeijer/vim-numbertoggle",
@@ -97,6 +108,13 @@ return {
   {
     "ggandor/leap.nvim",
     lazy = false,
+  },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("rainbow-delimiters.setup").setup()
+    end,
+    event = "VeryLazy",
   },
   -- {
   --   "zbirenbaum/copilot.lua",
