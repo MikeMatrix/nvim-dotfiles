@@ -63,7 +63,7 @@ return {
     opts = require "configs.nvim-tree",
   },
   {
-    "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-web-devicons",
     opts = require "configs.nvim-web-devicons",
     config = true,
   },
