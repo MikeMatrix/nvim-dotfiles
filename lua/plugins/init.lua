@@ -94,6 +94,15 @@ return {
       { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
     },
   },
+  {
+    "stevearc/oil.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = { "Oil" },
+    opts = require "configs.oil",
+    config = true,
+  },
   -- editor
   {
     "jeffkreeftmeijer/vim-numbertoggle",
