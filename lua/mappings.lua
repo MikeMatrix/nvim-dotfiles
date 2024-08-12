@@ -46,6 +46,10 @@ map("n", "gs", function()
   require("typescript-tools.api").go_to_source_definition(false)
 end, { desc = "LSP TS go to source defintion" })
 
+map("n", "<leader>l", function()
+  vim.diagnostic.open_float()
+end, { desc = "LSP Open Diagnostics Float" })
+
 -- Telescope
 map(
   { "n", "v" },

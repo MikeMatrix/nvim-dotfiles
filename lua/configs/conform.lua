@@ -19,6 +19,11 @@ local options = {
 
     rust = { "rustfmt" },
   },
+  -- formatters = {
+  --   ["sql-formatter"] = {
+  --     prepend_args = { "-l", "plsql" },
+  --   },
+  -- },
 
   format_on_save = {
     -- These options will be passed to conform.format()

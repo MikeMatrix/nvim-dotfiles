@@ -6,18 +6,14 @@ local M = {}
 
 M.ui = {
   theme = "tokyonight",
-  changed_themes = {
-    catppuccin = {
-      base_16 = {
-        base02 = "#4d4f68",
-      },
-    },
-  },
-  transparency = false,
+  transparency = true,
   tabufline = {
     enabled = false,
   },
-  statusline = {},
+  statusline = {
+        separator_style = "round",
+    },
+    
   hl_override = require("highlights").override,
   hl_add = require("highlights").add,
 }
