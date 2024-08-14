@@ -50,6 +50,10 @@ map("n", "<leader>l", function()
   vim.diagnostic.open_float()
 end, { desc = "LSP Open Diagnostics Float" })
 
+map({ "n", "v" }, "<leader>ca", function()
+  require("actions-preview").code_actions()
+end, { desc = "LSP Code Actions" })
+
 -- Telescope
 map(
   { "n", "v" },
@@ -59,32 +63,40 @@ map(
 )
 map({ "n", "v" }, "<leader>rf", "<cmd> Telescope lsp_references <CR>", { desc = "Telescope LSP Reference List" })
 map({ "n", "v" }, "<leader>di", "<cmd> Telescope diagnostics <CR>", { desc = "Telescope LSP Diagnostics" })
+map({ "n", "v" }, "<leader>fj", function()
+  require("telescope").extensions.git_worktree.git_worktree()
+end, { desc = "Telescope Git Worktree List" })
+map({ "n", "v" }, "<leader>fJ", function()
+  require("telescope").extensions.git_worktree.create_git_worktree()
+end, { desc = "Telescope Git Worktree Create" })
 
 -- Harpoon
+local harpoon = require "harpoon"
+
 map("n", "<leader>ha", function()
-  require("harpoon.mark").add_file()
+  harpoon:list():add()
 end, { desc = "Harpoon Add file" })
 
 map("n", "<leader>hb", function()
-  require("harpoon.ui").toggle_quick_menu()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
 end, { desc = "Harpoon Menu" })
 
 map("n", "<leader>ta", "<cmd> Telescope harpoon marks <CR>", { desc = "Harpoon Quick Menu" })
 
 map("n", "<leader>1", function()
-  require("harpoon.ui").nav_file(1)
+  harpoon:list():select(1)
 end, { desc = "Harpoon File 1" })
 
 map("n", "<leader>2", function()
-  require("harpoon.ui").nav_file(2)
+  harpoon:list():select(2)
 end, { desc = "Harpoon File 2" })
 
 map("n", "<leader>3", function()
-  require("harpoon.ui").nav_file(3)
+  harpoon:list():select(3)
 end, { desc = "Harpoon File 3" })
 
 map("n", "<leader>4", function()
-  require("harpoon.ui").nav_file(4)
+  harpoon:list():select(4)
 end, { desc = "Harpoon File 4" })
 
 -- Leap

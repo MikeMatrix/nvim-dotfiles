@@ -80,8 +80,22 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
+    branch = "harpoon2",
     cmd = "Harpoon",
     lazy = false,
+    config = true,
+  },
+  {
+    "polarmutex/git-worktree.nvim",
+    version = "^2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    lazy = false,
+    config = function()
+      require("telescope").load_extension "git_worktree"
+    end,
   },
   {
     "aznhe21/actions-preview.nvim",
