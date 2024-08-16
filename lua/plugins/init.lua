@@ -25,6 +25,13 @@ return {
     },
   },
   {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
