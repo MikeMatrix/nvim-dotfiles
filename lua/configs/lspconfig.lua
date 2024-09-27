@@ -20,8 +20,10 @@ local servers = {
   "clangd",
   "graphql",
   "tailwindcss",
+  "jsonls",
   -- "sqls",
   "omnisharp",
+  "rust_analyzer",
 }
 
 local per_server_config = {
@@ -36,6 +38,9 @@ local per_server_config = {
       ["textDocument/references"] = require("omnisharp_extended").references_handler,
       ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
     },
+    enable_import_completion = true,
+    organize_imports_on_format = true,
+    enable_roslyn_analyzers = true,
   },
 }
 
