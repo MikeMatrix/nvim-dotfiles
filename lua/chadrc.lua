@@ -11,11 +11,33 @@ M.ui = {
     enabled = false,
   },
   statusline = {
-        separator_style = "round",
-    },
-    
+    separator_style = "round",
+  },
+
   hl_override = require("highlights").override,
   hl_add = require("highlights").add,
+  mason = {
+    pkgs = {
+      -- lua
+      "lua-language-server",
+      "stylua",
+      -- web
+      "css-lsp",
+      "html-lsp",
+      "typescript-language-server",
+      "graphql-language-service-cli",
+      "deno",
+      "prettier",
+      "prettierd",
+      -- c/cpp
+      "clangd",
+      "clang-format",
+      -- rust
+      "rust-analyzer",
+      -- php
+      "intelephense",
+    },
+  },
 }
 
 return M
