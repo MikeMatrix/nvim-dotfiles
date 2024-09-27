@@ -221,10 +221,27 @@ return {
     end,
     event = "VeryLazy",
   },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "User FilePost",
+  --   config = true,
+  --   opts = require "configs.copilot",
+  -- },
   {
-    "zbirenbaum/copilot.lua",
-    event = "User FilePost",
-    config = true,
-    opts = require "configs.copilot",
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup {
+        keymaps = {
+          accept_suggestion = "<C-y>",
+          clear_suggestion = "<A-n>",
+          accept_word = "<A-h>",
+        },
+      }
+    end,
+    lazy = false,
   },
+  -- {
+  --   "jannis-baum/vivify.vim",
+  --   cmd = "Vivify",
+  -- },
 }
