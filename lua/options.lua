@@ -54,3 +54,13 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
+
+-- Fix docker compose filetype
+local function set_filetype(pattern, filetype)
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = pattern,
+    command = "set filetype=" .. filetype,
+  })
+end
+
+set_filetype({ "docker-compose.yml" }, "yaml.docker-compose")

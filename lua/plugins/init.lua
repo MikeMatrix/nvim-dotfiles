@@ -61,6 +61,38 @@ return {
     },
     cmd = "TSPlaygroundToggle",
   },
+  -- dap
+  {
+    "mfussenegger/nvim-dap",
+    lazy = false,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    lazy = false,
+    opts = {
+      ensure_installed = {
+        "js",
+      },
+      handlers = {
+        function(config)
+          require("mason-nvim-dap").default_setup(config)
+        end,
+      },
+    },
+    config = true,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    lazy = false,
+  },
   -- ui
   {
     "nvim-tree/nvim-tree.lua",
@@ -171,34 +203,6 @@ return {
       },
     },
   },
-  {
-    "folke/twilight.nvim",
-    opts = {
-      dimming = {
-        alpha = 0.01, -- amount of dimming
-        -- we try to get the foreground from the highlight groups or fallback color
-        color = { "Normal", "#ffffff" },
-        term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
-        inactive = false, -- when true, other windows will be fully dimmed (unless they contain the same buffer)
-      },
-      context = 10, -- amount of lines we will try to show around the current line
-      treesitter = true, -- use treesitter when available for the filetype
-      -- treesitter is used to automatically expand the visible text,
-      -- but you can further control the types of nodes that should always be fully expanded
-      expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
-        "function",
-        "method",
-        "table",
-        "if_statement",
-      },
-      exclude = {}, -- exclude these filetypes
-    },
-    cmd = {
-      "Twilight",
-      "TwilightEnable",
-      "TwilightDisable",
-    },
-  },
   -- editor
   {
     "jeffkreeftmeijer/vim-numbertoggle",
@@ -221,12 +225,6 @@ return {
     end,
     event = "VeryLazy",
   },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   event = "User FilePost",
-  --   config = true,
-  --   opts = require "configs.copilot",
-  -- },
   {
     "supermaven-inc/supermaven-nvim",
     config = function()
@@ -240,8 +238,4 @@ return {
     end,
     lazy = false,
   },
-  -- {
-  --   "jannis-baum/vivify.vim",
-  --   cmd = "Vivify",
-  -- },
 }

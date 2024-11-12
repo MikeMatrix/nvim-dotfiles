@@ -10,9 +10,6 @@ M.ui = {
   tabufline = {
     enabled = false,
   },
-  statusline = {
-    separator_style = "round",
-  },
 
   hl_override = require("highlights").override,
   hl_add = require("highlights").add,

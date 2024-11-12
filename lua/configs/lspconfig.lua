@@ -24,6 +24,8 @@ local servers = {
   -- "sqls",
   "omnisharp",
   "rust_analyzer",
+  "dockerls",
+  "docker_compose_language_service",
 }
 
 local per_server_config = {
