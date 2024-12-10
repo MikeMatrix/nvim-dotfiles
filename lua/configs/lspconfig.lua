@@ -44,6 +44,17 @@ local per_server_config = {
     organize_imports_on_format = true,
     enable_roslyn_analyzers = true,
   },
+  rust_analyzer = {
+    procMacro = {
+      ignored = {
+        leptos_macro = {
+          -- optional: --
+          -- "component",
+          "server",
+        },
+      },
+    },
+  },
 }
 
 -- lsps with default config
@@ -62,22 +73,22 @@ for _, lsp in ipairs(servers) do
 end
 
 -- typescript
-require("typescript-tools").setup {
-  on_attach = custom_on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-  settings = {
-    quotePreference = "auto",
-    jsx_close_tag = {
-      enable = true,
-      filetypes = { "javascriptreact", "typescriptreact" },
-    },
-    vtsls = {
-      experimental = {
-        completion = {
-          enableServerSideFuzzyMatch = true,
-        },
-      },
-    },
-  },
-}
+-- require("typescript-tools").setup {
+--   on_attach = custom_on_attach,
+--   on_init = on_init,
+--   capabilities = capabilities,
+--   settings = {
+--     quotePreference = "auto",
+--     jsx_close_tag = {
+--       enable = true,
+--       filetypes = { "javascriptreact", "typescriptreact" },
+--     },
+--     vtsls = {
+--       experimental = {
+--         completion = {
+--           enableServerSideFuzzyMatch = true,
+--         },
+--       },
+--     },
+--   },
+-- }

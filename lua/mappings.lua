@@ -26,33 +26,33 @@ map("n", "<leader>O", "m`O<Esc>``", { desc = "Empty Line above" })
 map("v", "p", "P", { desc = "Paste without yanking" })
 
 -- LSP
-map({ "n", "v" }, "<leader>co", function()
-  require("typescript-tools.api").organize_imports(false)
-end, { desc = "LSP Organize Imports" })
-
-map({ "n", "v" }, "<leader>cf", function()
-  require("typescript-tools.api").fix_all(false)
-end, { desc = "LSP Fix All" })
-
-map({ "n", "v" }, "<leader>ci", function()
-  require("typescript-tools.api").add_missing_imports(false)
-end, { desc = "LSP Add missing imports" })
-
-map("n", "<leader>RF", function()
-  require("typescript-tools.api").rename_file(false)
-end, { desc = "LSP TS Rename File" })
-
-map("n", "gs", function()
-  require("typescript-tools.api").go_to_source_definition(false)
-end, { desc = "LSP TS go to source defintion" })
-
-map("n", "<leader>l", function()
-  vim.diagnostic.open_float()
-end, { desc = "LSP Open Diagnostics Float" })
-
-map({ "n", "v" }, "<leader>ca", function()
-  require("actions-preview").code_actions()
-end, { desc = "LSP Code Actions" })
+-- map({ "n", "v" }, "<leader>co", function()
+--   require("typescript-tools.api").organize_imports(false)
+-- end, { desc = "LSP Organize Imports" })
+--
+-- map({ "n", "v" }, "<leader>cf", function()
+--   require("typescript-tools.api").fix_all(false)
+-- end, { desc = "LSP Fix All" })
+--
+-- map({ "n", "v" }, "<leader>ci", function()
+--   require("typescript-tools.api").add_missing_imports(false)
+-- end, { desc = "LSP Add missing imports" })
+--
+-- map("n", "<leader>RF", function()
+--   require("typescript-tools.api").rename_file(false)
+-- end, { desc = "LSP TS Rename File" })
+--
+-- map("n", "gs", function()
+--   require("typescript-tools.api").go_to_source_definition(false)
+-- end, { desc = "LSP TS go to source defintion" })
+--
+-- map("n", "<leader>l", function()
+--   vim.diagnostic.open_float()
+-- end, { desc = "LSP Open Diagnostics Float" })
+--
+-- map({ "n", "v" }, "<leader>ca", function()
+--   require("actions-preview").code_actions()
+-- end, { desc = "LSP Code Actions" })
 
 -- Telescope
 map(

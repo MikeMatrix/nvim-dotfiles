@@ -11,19 +11,25 @@ return {
     opts = require "configs.conform",
   },
   {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
+    "williamboman/mason-lspconfig.nvim",
+    commands = { "LspInstall", "LspUninstall" },
+    event = "User FilePost",
+    opts = require "configs.lspconfig-mason",
+    config = true,
   },
   {
-    "pmizio/typescript-tools.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("nvchad.lsp").diagnostic_config()
+    end,
   },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "neovim/nvim-lspconfig",
+  --   },
+  -- },
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
     dependencies = {
@@ -218,24 +224,24 @@ return {
     "ggandor/leap.nvim",
     lazy = false,
   },
-  {
-    "HiPhish/rainbow-delimiters.nvim",
-    config = function()
-      require("rainbow-delimiters.setup").setup()
-    end,
-    event = "VeryLazy",
-  },
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup {
-        keymaps = {
-          accept_suggestion = "<C-y>",
-          clear_suggestion = "<A-n>",
-          accept_word = "<A-h>",
-        },
-      }
-    end,
-    lazy = false,
-  },
+  -- {
+  --   "HiPhish/rainbow-delimiters.nvim",
+  --   config = function()
+  --     require("rainbow-delimiters.setup").setup()
+  --   end,
+  --   event = "VeryLazy",
+  -- },
+  -- {
+  --   "supermaven-inc/supermaven-nvim",
+  --   config = function()
+  --     require("supermaven-nvim").setup {
+  --       keymaps = {
+  --         accept_suggestion = "<C-y>",
+  --         clear_suggestion = "<A-n>",
+  --         accept_word = "<A-h>",
+  --       },
+  --     }
+  --   end,
+  --   lazy = false,
+  -- },
 }
