@@ -129,62 +129,6 @@ local config = {
         enable_roslyn_analyzers = true,
       }
     end,
-    ["ts_ls"] = function()
-      require("lspconfig").ts_ls.setup {
-        on_attach = function(client, bufnr)
-          on_attach(client, bufnr)
-
-          local function opts(desc)
-            return { buffer = bufnr, desc = "LSP " .. desc }
-          end
-
-          map({ "n", "v" }, "<leader>co", function()
-            client:exec_cmd {
-              command = "_typescript.organizeImports",
-              arguments = { vim.api.nvim_buf_get_name(bufnr) },
-              title = "",
-            }
-          end, opts "Organize Imports")
-
-          map({ "n", "v" }, "<leader>ci", function()
-            vim.lsp.buf.code_action {
-              apply = true,
-              context = {
-                only = { "source.addMissingImports.ts" },
-                diagnostics = {},
-              },
-            }
-          end, opts "Add missing Imports")
-
-          map({ "n", "v" }, "<leader>gS", function()
-            local params = vim.lsp.util.make_position_params()
-            require("trouble").open {
-              mode = "lsp_command",
-              params = {
-                command = "typescript.goToSourceDefinition",
-                arguments = { params.textDocument.uri, params.position },
-              },
-            }
-          end, opts "Add missing Imports")
-        end,
-        on_init = on_init,
-        capabilities = capabilities,
-        settings = {
-          quotePreference = "auto",
-          jsx_close_tag = {
-            enable = true,
-            filetypes = { "javascriptreact", "typescriptreact" },
-          },
-          vtsls = {
-            experimental = {
-              completion = {
-                enableServerSideFuzzyMatch = true,
-              },
-            },
-          },
-        },
-      }
-    end,
     ["vtsls"] = function()
       local opts = {
         on_attach = function(client, bufnr)

@@ -64,3 +64,11 @@ local function set_filetype(pattern, filetype)
 end
 
 set_filetype({ "docker-compose.yml" }, "yaml.docker-compose")
+
+vim.filetype.add {
+  extension = {
+    jinja = "jinja",
+    jinja2 = "jinja",
+    j2 = "jinja",
+  },
+}
